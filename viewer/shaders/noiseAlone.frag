@@ -1,4 +1,4 @@
-#version 410
+#version 330
 /*
  * 3D Perlin noise (simplex), in a GLSL fragment shader.
  *
@@ -265,10 +265,10 @@ vec4 Jade(in float c)
     vec4 Color;
 
 
-    float tab[5] = {0.0, 0.3, 0.6, 0.8, 1.0};
-    vec4 colors[5] = {vec4( 24.0, 166.0, 102.0, 255.0), vec4( 78.0, 174.0, 115.0, 255.0),
+    float tab[5] = float[](0.0, 0.3, 0.6, 0.8, 1.0);
+    vec4 colors[5] = vec4[](vec4( 24.0, 166.0, 102.0, 255.0), vec4( 78.0, 174.0, 115.0, 255.0),
                       vec4(128.0, 224.0, 165.0, 255.0), vec4( 78.0, 154.0, 115.0, 255.0), vec4( 29.0, 155.0, 102.0, 255.0)
-                     };
+                     );
 
     int j = 1;
     while ((c > tab[j]) && (j < 4))
@@ -297,8 +297,8 @@ vec4 Wood(in float c)
     vec4 Color;
 
 
-    float tab[3] = {0.0,  0.75,  1.0};
-    vec4 colors[3] = {vec4(189, 94, 4, 255.0),   vec4(144, 48, 6, 255  ), vec4( 60, 10, 8, 255  )};
+    float tab[3] = float[](0.0,  0.75,  1.0);
+    vec4 colors[3] = vec4[](vec4(189, 94, 4, 255.0),   vec4(144, 48, 6, 255  ), vec4( 60, 10, 8, 255  ));
 
     int j = 1;
     while ((c > tab[j]) && (j < 2))

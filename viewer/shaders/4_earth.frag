@@ -1,4 +1,4 @@
-#version 410
+#version 330
 #define M_PI 3.14159265358979323846
 
 uniform float lightIntensity;
@@ -65,7 +65,7 @@ f = vertColor;
     vec4 R = 2*( dot(L, nps) * nps )- L;
     R = normalize(R);
     vec4 Cs = lightIntensity *  pow(max( dot(R, V), 0.0), shininess) *  f;
-    //f = texture(earthDay, longitudeLatitude);
+    f = texture(earthDay, longitudeLatitude);
 
     vec4 Ca = lightIntensity * f;
     //vec4 Cd = lightIntensity * f * max(dot(nps, L),0.0);

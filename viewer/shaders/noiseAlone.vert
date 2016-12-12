@@ -1,4 +1,4 @@
-#version 410
+#version 330
 
 uniform mat4 matrix;
 uniform mat4 perspective;

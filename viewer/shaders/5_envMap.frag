@@ -1,4 +1,4 @@
-#version 410
+#version 330
 #define M_PI 3.14159265358979323846
 
 uniform sampler2D envMap;

@@ -1,4 +1,4 @@
-#version 410
+#version 330
 
 uniform mat4 matrix;
 uniform mat4 perspective;
@@ -16,7 +16,7 @@ out vec4 lightVector;
 out vec4 vertColor;
 out vec3 vertNormal;
 out vec4 lightSpace;
-out vec4 gl_Position;
+// out vec4 gl_Position;
 
 void main( void )
 {
