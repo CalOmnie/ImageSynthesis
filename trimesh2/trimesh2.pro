@@ -8,14 +8,15 @@ else {
 
     macx {
         DEFINES += DARWIN
-        QMAKE_CXXFLAGS_WARN_OFF = -Wno-unknown-pragmas
+        QMAKE_CXXFLAGS += -Wno-unknown-pragmas
     }
     else {
+        QMAKE_CXXFLAGS += -Wno-unused-parameter -Wno-reorder -Wno-unused-function -Wno-switch -Wno-unused-result -Wno-unknown-pragmas
         DEFINES += LINUX
     }
 }
 
-CONFIG += staticlib
+CONFIG += silent staticlib
 QT += opengl xml
 
 TARGET = trimesh

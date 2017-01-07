@@ -1,13 +1,14 @@
 DESTDIR = .
 QT       += core gui opengl
 
+CONFIG += silent
 TARGET = myViewer
 TEMPLATE = app
 
 macx {
   QMAKE_CXXFLAGS += -Wno-unknown-pragmas
 } else {
-  QMAKE_LFLAGS += -Wno-unknown-pragmas -fopenmp
+  QMAKE_CXXFLAGS += -Wno-unused-parameter -Wno-reorder -Wno-unused-function -Wno-switch -Wno-unused-result -Wno-unknown-pragmas -fopenmp
 }
 
 SOURCES +=  \
