@@ -15,7 +15,7 @@ in vec4 vertColor;
 in vec3 vertNormal;
 in mat3 MG;
 
-varying vec4 texCoords;
+in vec4 texCoords;
 
 out vec4 fragColor;
 

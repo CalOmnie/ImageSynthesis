@@ -16,7 +16,7 @@ out vec4 vertColor;
 out vec3 vertNormal;
 out mat3 MG;
 
-varying vec4 texCoords;
+out vec4 texCoords;
 
 void main( void )
 {
