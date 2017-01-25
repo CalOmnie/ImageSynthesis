@@ -30,90 +30,90 @@ SUBTARGETS    =  \
 
 sub-trimesh2-qmake_all:  FORCE
 	@test -d trimesh2/ || mkdir -p trimesh2/
-	cd trimesh2/ && $(QMAKE) /home/2017/piat_s/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile
+	cd trimesh2/ && $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile
 	cd trimesh2/ && $(MAKE) -f Makefile qmake_all
 sub-trimesh2: FORCE
 	@test -d trimesh2/ || mkdir -p trimesh2/
-	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile
+	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile
 sub-trimesh2-make_first-ordered: FORCE
 	@test -d trimesh2/ || mkdir -p trimesh2/
-	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile 
+	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile 
 sub-trimesh2-make_first: FORCE
 	@test -d trimesh2/ || mkdir -p trimesh2/
-	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile 
+	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile 
 sub-trimesh2-all-ordered: FORCE
 	@test -d trimesh2/ || mkdir -p trimesh2/
-	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile all
+	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile all
 sub-trimesh2-all: FORCE
 	@test -d trimesh2/ || mkdir -p trimesh2/
-	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile all
+	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile all
 sub-trimesh2-clean-ordered: FORCE
 	@test -d trimesh2/ || mkdir -p trimesh2/
-	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile clean
+	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile clean
 sub-trimesh2-clean: FORCE
 	@test -d trimesh2/ || mkdir -p trimesh2/
-	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile clean
+	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile clean
 sub-trimesh2-distclean-ordered: FORCE
 	@test -d trimesh2/ || mkdir -p trimesh2/
-	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile distclean
 sub-trimesh2-distclean: FORCE
 	@test -d trimesh2/ || mkdir -p trimesh2/
-	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile distclean
 sub-trimesh2-install_subtargets-ordered: FORCE
 	@test -d trimesh2/ || mkdir -p trimesh2/
-	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile install
+	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile install
 sub-trimesh2-install_subtargets: FORCE
 	@test -d trimesh2/ || mkdir -p trimesh2/
-	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile install
+	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile install
 sub-trimesh2-uninstall_subtargets-ordered: FORCE
 	@test -d trimesh2/ || mkdir -p trimesh2/
-	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
 sub-trimesh2-uninstall_subtargets: FORCE
 	@test -d trimesh2/ || mkdir -p trimesh2/
-	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
 sub-viewer-qmake_all: sub-trimesh2-qmake_all FORCE
 	@test -d viewer/ || mkdir -p viewer/
-	cd viewer/ && $(QMAKE) /home/2017/piat_s/ImageSynthesis/viewer/viewer.pro -o Makefile
+	cd viewer/ && $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/viewer/viewer.pro -o Makefile
 	cd viewer/ && $(MAKE) -f Makefile qmake_all
 sub-viewer: FORCE
 	@test -d viewer/ || mkdir -p viewer/
-	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile
+	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile
 sub-viewer-make_first-ordered: sub-trimesh2-make_first-ordered  FORCE
 	@test -d viewer/ || mkdir -p viewer/
-	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile 
+	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile 
 sub-viewer-make_first: FORCE
 	@test -d viewer/ || mkdir -p viewer/
-	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile 
+	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile 
 sub-viewer-all-ordered: sub-trimesh2-all-ordered  FORCE
 	@test -d viewer/ || mkdir -p viewer/
-	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile all
+	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile all
 sub-viewer-all: FORCE
 	@test -d viewer/ || mkdir -p viewer/
-	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile all
+	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile all
 sub-viewer-clean-ordered: sub-trimesh2-clean-ordered  FORCE
 	@test -d viewer/ || mkdir -p viewer/
-	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile clean
+	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile clean
 sub-viewer-clean: FORCE
 	@test -d viewer/ || mkdir -p viewer/
-	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile clean
+	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile clean
 sub-viewer-distclean-ordered: sub-trimesh2-distclean-ordered  FORCE
 	@test -d viewer/ || mkdir -p viewer/
-	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile distclean
 sub-viewer-distclean: FORCE
 	@test -d viewer/ || mkdir -p viewer/
-	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile distclean
 sub-viewer-install_subtargets-ordered: sub-trimesh2-install_subtargets-ordered  FORCE
 	@test -d viewer/ || mkdir -p viewer/
-	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile install
+	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile install
 sub-viewer-install_subtargets: FORCE
 	@test -d viewer/ || mkdir -p viewer/
-	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile install
+	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile install
 sub-viewer-uninstall_subtargets-ordered: sub-trimesh2-uninstall_subtargets-ordered  FORCE
 	@test -d viewer/ || mkdir -p viewer/
-	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
 sub-viewer-uninstall_subtargets: FORCE
 	@test -d viewer/ || mkdir -p viewer/
-	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
 
 Makefile: SIA_TP.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
@@ -142,6 +142,9 @@ Makefile: SIA_TP.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.co
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformsupport_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri \
@@ -194,6 +197,9 @@ Makefile: SIA_TP.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.co
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformsupport_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri:
@@ -233,10 +239,10 @@ uninstall_subtargets: sub-trimesh2-uninstall_subtargets-ordered sub-viewer-unins
 
 sub-trimesh2-check_ordered:
 	@test -d trimesh2/ || mkdir -p trimesh2/
-	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile check
+	cd trimesh2/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/trimesh2/trimesh2.pro -o Makefile ) && $(MAKE) -f Makefile check
 sub-viewer-check_ordered: sub-trimesh2-check_ordered 
 	@test -d viewer/ || mkdir -p viewer/
-	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/2017/piat_s/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile check
+	cd viewer/ && ( test -e Makefile || $(QMAKE) /home/groux_l/SIMA/ImageSynthesis/viewer/viewer.pro -o Makefile ) && $(MAKE) -f Makefile check
 check: sub-trimesh2-check_ordered sub-viewer-check_ordered
 install: install_subtargets  FORCE
 

@@ -14,7 +14,7 @@ CC            = @echo compiling $< && gcc
 CXX           = @echo compiling $< && g++
 DEFINES       = -DQT_NO_DEBUG -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 -Wall -W -D_REENTRANT -fPIE $(DEFINES)
-CXXFLAGS      = -pipe -Wno-unused-parameter -Wno-reorder -Wno-unused-function -Wno-switch -Wno-unused-result -Wno-unknown-pragmas -fopenmp -O2 -Wall -W -D_REENTRANT -fPIE $(DEFINES)
+CXXFLAGS      = -pipe -Wno-unused-parameter -Wno-reorder -Wno-unused-function -Wno-switch -Wno-unused-result -Wno-unknown-pragmas -fopenmp -std=c++14 -O2 -Wall -W -D_REENTRANT -fPIE $(DEFINES)
 INCPATH       = -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I. -I../trimesh2/include -I/usr/include/qt5 -I/usr/include/qt5/QtOpenGL -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I.
 LINK          = @echo linking $@ && g++
 LFLAGS        = -Wl,-O1
@@ -83,6 +83,9 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformsupport_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri \
@@ -174,6 +177,9 @@ Makefile: viewer.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf 
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformsupport_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri \
@@ -237,6 +243,9 @@ Makefile: viewer.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf 
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformsupport_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri:
@@ -305,21 +314,21 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_core-profile.cpp
 qrc_core-profile.cpp: shaders/core-profile.qrc \
 		shaders/5_envMap.vert \
+		shaders/noiseAlone.vert \
+		shaders/2_phong.frag \
+		shaders/3_textured.vert \
+		shaders/h_shadowMapGeneration.vert \
+		shaders/4_earth.vert \
 		shaders/pixar.vert \
 		shaders/1_simple.frag \
 		shaders/2_phong.vert \
-		shaders/4_earth.frag \
-		shaders/3_textured.vert \
-		shaders/noiseAlone.vert \
-		shaders/h_shadowMapGeneration.vert \
 		shaders/5_envMap.frag \
-		shaders/1_simple.vert \
-		shaders/pixar.frag \
-		shaders/2_phong.frag \
-		shaders/4_earth.vert \
-		shaders/3_textured.frag \
 		shaders/noiseAlone.frag \
-		shaders/h_shadowMapGeneration.frag
+		shaders/3_textured.frag \
+		shaders/h_shadowMapGeneration.frag \
+		shaders/4_earth.frag \
+		shaders/pixar.frag \
+		shaders/1_simple.vert
 	@echo rcc shaders/core-profile.qrc && /usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name core-profile shaders/core-profile.qrc -o qrc_core-profile.cpp
 
 compiler_moc_header_make_all: moc_openglwindow.cpp moc_glshaderwindow.cpp

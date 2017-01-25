@@ -106,7 +106,7 @@ void setupShaderMenu(QMenuBar* myMenuBar, glShaderWindow* glWindow) {
     foreach (const QString &shaderName, fragShaders) {
         QString baseName = shaderName.left(shaderName.lastIndexOf("."));
         // is it one the "hidden" shaders (deferred shading, shadow generation) ?
-        if (baseName.indexOf("h_") != 0) {
+       if (baseName.indexOf("h_") != 0) {
             // is there a vertex shader with the same name?
             if (vertShaders.filter(baseName).size() > 0) {
                 // Note that we only check for existence, not compilation
@@ -117,7 +117,7 @@ void setupShaderMenu(QMenuBar* myMenuBar, glShaderWindow* glWindow) {
                 shaderMapper.setMapping(action, baseName);
                 shaderMenu->addAction(action);
             }
-        }
+       }
     }
     glWindow->connect(&shaderMapper, SIGNAL(mapped(const QString&)), glWindow, SLOT(setShader(const QString&)));
 }

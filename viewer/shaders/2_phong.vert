@@ -16,7 +16,7 @@ out vec4 lightVector;
 out vec4 vertColor;
 out vec3 vertNormal;
 out vec4 lightSpace;
-// out vec4 gl_Position;
+out vec3 Position_worldSpace;
 
 void main( void )
 {
@@ -30,8 +30,14 @@ void main( void )
     lightVector = vertPosition - matrix * vec4(lightPosition,1.0);
     vertNormal = normalize(normalMatrix * normal);
 
+    const mat4 shadowMatrix = mat4(0.5, 0.0, 0.0, 0.0,
+                                   0.0, 0.5, 0.0, 0.0,
+                                   0.0, 0.0, 0.5, 0.0,
+                                   0.5, 0.5, 0.5, 1.0);
+
     lightSpace = worldToLightSpace * vec4(vertex, 1.0);
 
+    Position_worldSpace = (matrix * vec4(vertex, 1.)).xyz;
 
     gl_Position = perspective * matrix * vec4(vertex, 1.0);
 }

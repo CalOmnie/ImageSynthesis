@@ -17,6 +17,7 @@
 #include <assert.h>
 
 
+
 #include "perlinNoise.h" // defines tables for Perlin Noise
 // shadowMapDimension: 512 if copy to CPU, 2048 if not
 
@@ -1403,7 +1404,8 @@ void glShaderWindow::render()
     float radius = (lightDistance) * modelMesh->bsphere.r ;
     QMatrix4x4 lightCoordMatrix;
     QMatrix4x4 lightPerspective;
-    if ((ground_program->uniformLocation("shadowMap") != -1) || (m_program->uniformLocation("shadowMap") != -1) )
+    QMatrix4x4 bias(0.5, 0., 0., 0., 0., 0.5, 0., 0., 0., 0., 0.5, 0., 0.5, 0.5, 0.5, 1.);
+    if ((ground_program->uniformLocation("shadowMap") != -1) || (m_program->uniformLocation("shadowMap") != -1) || shMap)
     {
         glActiveTexture(GL_TEXTURE2);
         glViewport(0, 0, shadowMapDimension, shadowMapDimension);
@@ -1414,10 +1416,12 @@ void glShaderWindow::render()
             QOpenGLFramebufferObjectFormat shadowMapFormat;
             shadowMapFormat.setAttachment(QOpenGLFramebufferObject::Depth);
             shadowMapFormat.setTextureTarget(GL_TEXTURE_2D);
-            shadowMapFormat.setInternalTextureFormat(GL_RGBA32F_ARB);
-            // shadowMapFormat.setInternalTextureFormat(GL_DEPTH_COMPONENT);
+            shadowMapFormat.setInternalTextureFormat(GL_R32F);
+            // shadowMapFormat.setInternalTextureFormat(GL_DEPTH_COMPONENT32F);
+
             shadowMap = new QOpenGLFramebufferObject(shadowMapDimension, shadowMapDimension, shadowMapFormat);
         }
+
         // Render into shadow Map
         m_program->release();
         ground_program->release();
@@ -1428,8 +1432,8 @@ void glShaderWindow::render()
         }
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f );
         glDisable(GL_CULL_FACE);
+        glCullFace(GL_BACK);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
 
 
         // set up camera position in light source:
@@ -1456,9 +1460,9 @@ void glShaderWindow::render()
 #ifdef CRUDE_BUT_WORKS
         // That one works, but slow. In theory not required.
         QImage debugPix = shadowMap->toImage();
-        QOpenGLTexture* sm = new QOpenGLTexture(QImage(debugPix));
-        sm->bind(shadowMap->texture());
-        sm->setWrapMode(QOpenGLTexture::ClampToEdge);
+        // QOpenGLTexture* sm = new QOpenGLTexture(QImage(debugPix));
+        // sm->bind(shadowMap->texture());
+        // sm->setWrapMode(QOpenGLTexture::ClampToEdge);
         debugPix.save("debug.png");
 #endif
         glClearColor( 0.2f, 0.2f, 0.2f, 1.0f );
@@ -1486,7 +1490,6 @@ void glShaderWindow::render()
     m_program->setUniformValue("largeurContour", largeurContour);
     m_program->setUniformValue("Fresnel",Fresnel);
     /* Shadow Mapping*/
-    m_program->setUniformValue("worldToLightSpace", lightPerspective * lightCoordMatrix );
     m_program->setUniformValue("shMap", shMap);
     m_program->setUniformValue("transparent", transparent);
     m_program->setUniformValue("lightIntensity", lightIntensity);
@@ -1512,15 +1515,27 @@ void glShaderWindow::render()
 
 
     // Shadow Mapping
-    if (m_program->uniformLocation("shadowMap") != -1)
+    if (m_program->uniformLocation("shadowMap") != -1 || shMap)
     {
-        m_program->setUniformValue("shadowMap", shadowMap->texture());
+      GLint shadowMapLoc = m_program->uniformLocation("shadowMap");
+      auto val = shadowMap->texture();
+      // glUniform1i(shadowMapLoc, val); //Texture unit 4 is for shadow maps.
+      glActiveTexture(GL_TEXTURE4);
+      glBindTexture(GL_TEXTURE_2D, val);
+      std::cout << val << std::endl;
+      glUniform1i(shadowMapLoc, 4);
+      m_program->setUniformValue("shadowMap", 4);
         // TODO_TP3: send the right transform here
-        m_program->setUniformValue("worldToLightSpace",  lightPerspective * lightCoordMatrix);
+      m_program->setUniformValue("worldToLightSpace", lightPerspective * lightCoordMatrix);
     }
 
     m_vao.bind();
     glDrawElements(GL_TRIANGLES, 3 * modelMesh->faces.size(), GL_UNSIGNED_INT, 0);
+    if (shadowMap)
+    {
+      std::cout << shadowMap->isValid() << std::endl;
+      std::cout << shadowMap->isBound() << std::endl;
+    }
     m_vao.release();
     m_program->release();
 
@@ -1542,7 +1557,7 @@ void glShaderWindow::render()
         ground_program->setUniformValue("bagher", bagher);
         ground_program->setUniformValue("contour", contour);
         ground_program->setUniformValue("shMap", shMap);
-        ground_program->setUniformValue("worldToLightSpace", lightPerspective * lightCoordMatrix );
+        ground_program->setUniformValue("worldToLightSpace", bias * lightPerspective * lightCoordMatrix );
         ground_program->setUniformValue("largeurContour", largeurContour);
         ground_program->setUniformValue("Perlin", perlin);
         ground_program->setUniformValue("jade", jade);
@@ -1572,7 +1587,7 @@ void glShaderWindow::render()
         {
             ground_program->setUniformValue("shadowMap", shadowMap->texture());
             // TODO_TP3: send the right transform here
-            ground_program->setUniformValue("worldToLightSpace", lightPerspective * lightCoordMatrix );
+            ground_program->setUniformValue("worldToLightSpace", bias * lightPerspective * lightCoordMatrix );
         }
         ground_vao.bind();
         glDrawElements(GL_TRIANGLES, g_numIndices, GL_UNSIGNED_INT, 0);

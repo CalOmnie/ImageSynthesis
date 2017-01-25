@@ -2,15 +2,12 @@
 
 in vec3 vertColor;
 in vec3 vertNormal;
+in float depth;
 
-
-out vec4 fragColor;
+out float fragColor;
 
 
 void main( void )
 {
-	
-    fragColor = vec4(gl_FragCoord.z, gl_FragCoord.z, gl_FragCoord.z, 1.0 );
-    
-
+     fragColor = gl_FragCoord.z;
 }

@@ -6,9 +6,9 @@ TARGET = myViewer
 TEMPLATE = app
 
 macx {
-  QMAKE_CXXFLAGS += -Wno-unknown-pragmas
+  QMAKE_CXXFLAGS += -Wno-unknown-pragmas -std=c++14
 } else {
-  QMAKE_CXXFLAGS += -Wno-unused-parameter -Wno-reorder -Wno-unused-function -Wno-switch -Wno-unused-result -Wno-unknown-pragmas -fopenmp
+  QMAKE_CXXFLAGS += -Wno-unused-parameter -Wno-reorder -Wno-unused-function -Wno-switch -Wno-unused-result -Wno-unknown-pragmas -fopenmp -std=c++14
 }
 
 SOURCES +=  \
